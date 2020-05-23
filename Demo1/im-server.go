@@ -8,8 +8,8 @@ import (
 	"log"
 	"net/http"
 	"strconv"
-	"webSocketDemo/config"
-	"webSocketDemo/handler"
+	"webSocketDemo/Demo1/config"
+	"webSocketDemo/Demo1/handler"
 )
 
 var G_Config *config.Config

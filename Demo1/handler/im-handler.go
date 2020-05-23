@@ -8,7 +8,7 @@ import (
 	"log"
 	"net/http"
 	"sync"
-	"webSocketDemo/model"
+	"webSocketDemo/Demo1/model"
 )
 
 type ImHandler struct {
