@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="utf8">
+<html lang="en">
 <head>
-    <title>xiaoming</title>
+    <title>xiaohuang</title>
     <script type="text/javascript">
         window.onload = function () {
             var conn;
@@ -23,7 +23,7 @@
                 return false;
             };
             function sendMsg(content,type) {
-                var msg = '{"fromUid":"'+xiaomingUid+'","toUid":"'+ligoudan+'","role":"user","type":"'+type+'","content":"'+content+'"}';
+                var msg = '{"fromUid":"'+ligoudan+'","toUid":"'+xiaomingUid+'","role":"user","type":"'+type+'","content":"'+content+'"}';
                 if (!conn) {
                     return false;
                 }
@@ -51,9 +51,9 @@
                         if (msgObj.type === 'SAY') {
                             var preTxt ='';
                             if (msgObj.fromUid==xiaomingUid){
-                                preTxt = '你对'+msgObj.toUid +':<br>';
+                                preTxt = '你对【'+msgObj.toUid +'】:<br>';
                             }else{
-                                preTxt = '' + msgObj.fromUid + '对你说 :<br>';
+                                preTxt = '【' + msgObj.fromUid + '】对你说 :<br>';
                             }
                             item.innerHTML = preTxt + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+msgObj.content;
                             appendLog(item);

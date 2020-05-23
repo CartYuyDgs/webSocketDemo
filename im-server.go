@@ -1,6 +1,7 @@
 package main
 
 import (
+	"container/list"
 	"encoding/json"
 	"flag"
 	"io/ioutil"
@@ -23,7 +24,10 @@ func main() {
 		log.Fatalln("Error Get Config Info failed")
 		return
 	}
-	imHandler = handler.NewImHandler()
+
+	m := make(map[string]*list.List)
+
+	imHandler = handler.NewImHandler(m, G_Config.LinkNum)
 	http.HandleFunc(G_Config.Path, imHandler.Handler)
 
 	http.ListenAndServe(":"+strconv.Itoa(G_Config.Port), nil)

@@ -1,16 +1,17 @@
 package model
 
 type Message struct {
-	FromUid string `json:"from_uid"`
-	ToUid   string `json:"to_uid"`
+	FromUid string `json:"fromUid"`
+	ToUid   string `json:"toUid"`
 	Type    string `json:"type"`
-	content string `json:"content"`
+	Content string `json:"content"`
 }
 
 const (
 	LOGIN  string = "LOGIN"
 	LOGOUT string = "LOGOUT"
 	SAY    string = "SAY"
+	PONG   string = "PONG"
 )
 
 func (m *Message) isLogin() bool {
@@ -23,4 +24,8 @@ func (m *Message) isLogout() bool {
 
 func (m *Message) isSay() bool {
 	return m.Type == SAY
+}
+
+func (m *Message) isPong() bool {
+	return m.Type == PONG
 }
