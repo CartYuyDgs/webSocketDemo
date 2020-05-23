@@ -25,6 +25,7 @@ func main() {
 	}
 	imHandler = handler.NewImHandler()
 	http.HandleFunc(G_Config.Path, imHandler.Handler)
+
 	http.ListenAndServe(":"+strconv.Itoa(G_Config.Port), nil)
 }
 

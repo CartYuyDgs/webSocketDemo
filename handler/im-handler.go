@@ -2,6 +2,7 @@ package handler
 
 import (
 	"github.com/gorilla/websocket"
+	"log"
 	"net/http"
 )
 
@@ -25,5 +26,13 @@ func (h *ImHandler) Handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *ImHandler) Read(link *websocket.Conn) {
+	defer link.Close()
 
+	for {
+		_, message, err := link.ReadMessage()
+		if err != nil {
+			log.Printf("Error %s", err)
+		}
+		log.Printf("message: %s", message)
+	}
 }
