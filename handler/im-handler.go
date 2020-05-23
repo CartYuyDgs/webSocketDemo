@@ -1,9 +1,11 @@
 package handler
 
 import (
+	"encoding/json"
 	"github.com/gorilla/websocket"
 	"log"
 	"net/http"
+	"webSocketDemo/model"
 )
 
 type ImHandler struct {
@@ -33,6 +35,24 @@ func (h *ImHandler) Read(link *websocket.Conn) {
 		if err != nil {
 			log.Printf("Error %s", err)
 		}
+		mes := &model.Message{}
+		//new(model.Message)
+
+		err = json.Unmarshal(message, mes)
+		if err != nil {
+			log.Printf("Error %s", err)
+			continue
+		}
+
 		log.Printf("message: %s", message)
+		switch mes.Type {
+		case model.LOGIN:
+			break
+		case model.LOGOUT:
+			break
+		case model.SAY:
+			break
+
+		}
 	}
 }
